@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Zarwa & Usama</title>
+  <meta name="description" content="Zarwa & Usama request the pleasure of your company — Saturday, 9 January 2027, ViceRoy by Mughal-E-Azam.">
+
+  <!-- Link preview (WhatsApp, Facebook, etc.) -->
+  <meta property="og:title" content="Zarwa & Usama — Wedding Invitation">
+  <meta property="og:description" content="Saturday, 9 January 2027 · ViceRoy by Mughal-E-Azam, Canal Road">
+  <meta property="og:image" content="assets/poster.jpg">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#47070d">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="s0">
+
+<!-- =====================================================================
+     1. OPENING  (video 1: ribbon + silk  →  tap the seal  →  video 2: gatefold)
+     The text inside .inv appears on the ivory card at the end of video 2.
+     ===================================================================== -->
+<section id="view" role="button" tabindex="0" aria-label="Tap to open the invitation">
+  <div id="stage">
+    <video id="v1" src="assets/clip1.mp4" playsinline webkit-playsinline preload="auto" poster="assets/poster.jpg"></video>
+    <video id="v2" src="assets/clip2.mp4" playsinline webkit-playsinline preload="auto"></video>
+    <div class="cover" id="cover"></div>
+    <button id="sealBtn" type="button" aria-label="Tap the wax seal to open the invitation"></button>
+    <p class="sealHint">Tap the seal</p>
+
+    <!-- Text written on the ivory card -->
+    <div class="inv" aria-live="polite">
+      <small>Together with their families</small>
+      <p class="mono">Zarwa<span>&amp;</span>Usama</p>
+      <p class="line">invite you to celebrate their wedding</p>
+      <div class="rule"></div>
+      <p class="date">Saturday, 9 January 2027</p>
+      <p class="where">at one o'clock in the afternoon</p>
+      <p class="where">ViceRoy by Mughal-E-Azam</p>
+    </div>
+  </div>
+
+  <div class="prompt"><b>A letter for you</b><span><i class="dot"></i>Tap to open</span></div>
+  <button type="button" class="down" id="down">Scroll for your invitation<i></i></button>
+</section>
+
+<p class="loading">Loading…</p>
+<div class="ctrl"><button type="button" class="pill" id="skip">Skip</button></div>
+
+
+<!-- =====================================================================
+     2. INVITATION DETAILS  (shown after the gatefold opens)
+     Each <article class="sheet"> is one ivory card. Copy one to add a section.
+     ===================================================================== -->
+<main id="details">
+  <img class="rose tl" src="assets/rose.webp" alt="">
+
+  <!-- Countdown — the date/time it counts to is set in js/main.js (WEDDING_DATE) -->
+  <section class="count rv" aria-label="Countdown">
+    <h2>Counting down</h2>
+    <div class="tiles">
+      <div class="tile"><b id="cD">00</b><span>days</span></div>
+      <div class="tile"><b id="cH">00</b><span>hours</span></div>
+      <div class="tile"><b id="cM">00</b><span>minutes</span></div>
+      <div class="tile"><b id="cS">00</b><span>seconds</span></div>
+    </div>
+  </section>
+
+  <!-- Venue -->
+  <article class="sheet rv">
+    <h2>The venue</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7H50M70 7H120" stroke="#c7a467"/><path d="M60 1 66 7 60 13 54 7Z" fill="#c7a467"/></svg>
+    <figure class="photo"><img src="assets/venue.jpg" alt="ViceRoy by Mughal-E-Azam, the wedding hall" width="1360" height="912" loading="lazy"></figure>
+    <p class="big">ViceRoy by Mughal-E-Azam</p>
+    <!-- <p class="lead">Canal Road</p> -->
+    <p>Saturday, 9 January 2027, from one o'clock in the afternoon</p>
+    <a class="btn" href="https://maps.app.goo.gl/GXDqvb2u8Z19aTUA8" target="_blank" rel="noopener">Get directions</a>
+    <!-- Calendar times are in UTC: 08:00–12:00 UTC = 1–5 PM Pakistan time -->
+    <a class="btn" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Zarwa%20%26%20Usama%27s%20Wedding&dates=20270109T080000Z/20270109T120000Z&location=ViceRoy%20by%20Mughal-E-Azam%2C%20Canal%20Road" target="_blank" rel="noopener">Add to calendar</a>
+  </article>
+
+  <!-- The day — one <li> per event -->
+  <article class="sheet rv">
+    <h2>The Barat Day</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7H50M70 7H120" stroke="#c7a467"/><path d="M60 1 66 7 60 13 54 7Z" fill="#c7a467"/></svg>
+    <ol class="tl">
+      <li><time>1:00 PM</time><div><h3>Welcome</h3></div></li>
+      <li><time>2:00 PM</time><div><h3>Appetizers</h3></div></li>
+      <li><time>2:30 PM</time><div><h3>Lunch</h3></div></li>
+      <li><time>3:00 PM</time><div><h3>Rasm</h3></div></li>
+      <li><time>4:00 PM</time><div><h3>Rukhsati</h3></div></li>
+    </ol>
+  </article>
+
+  <!-- Dress code -->
+  <article class="sheet rv">
+    <h2>Dress code</h2>
+    <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7H50M70 7H120" stroke="#c7a467"/><path d="M60 1 66 7 60 13 54 7Z" fill="#c7a467"/></svg>
+    <p class="big">Come as your most beautiful self</p>
+    <p>There's no rule here, because everything looks beautiful on you. Wear what makes you feel radiant, and bring us the very best version of you.</p>
+    <p class="lead">The cameras are ready. Are you?</p>
+  </article>
+
+  <!-- Gifts -->
+  <article class="sheet rv">
+    <h2>Gifts</h2>
+    <p class="lead" style="font-size:20px">Your presence and your duas are the greatest gift of all.</p>
+    <p>Envelopes, however, are accepted with great joy and are never returned.</p>
+  </article>
+
+  <img class="rose br" src="assets/rose.webp" alt="" style="bottom:0">
+
+  <!-- Footer -->
+  <footer>
+    <img src="assets/seal.webp" alt="">
+    <p class="mono">Zarwa<span>&amp;</span>Usama</p>
+    <p>Saturday, 9 January 2027</p>
+    <p>ViceRoy by Mughal-E-Azam, Canal Road</p>
+    <p style="margin-top:14px">For any questions, call or WhatsApp</p>
+    <p><a href="tel:+923164855731" style="color:inherit;font-weight:600;font-size:20px;text-decoration:none">0316 4855731</a></p>
+    <p style="margin-top:14px"><button type="button" class="pill" id="replay">Replay the opening</button></p>
+    <p class="credit">Made by Hanzala Shahzad</p>
+  </footer>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+/* =====================================================================
+   Zarwa & Usama — wedding invitation styles
+   ---------------------------------------------------------------------
+   Colours live in :root below. Change them in one place:
+     --ground  page background (embossed wine paper)
+     --gold    gold lines and accents
+     --gold2   light gold text on the wine background
+     --ink     main text colour on the ivory cards
+     --soft    softer text on the ivory cards
+   Fonts: Pinyon Script (names, titles) + Cormorant Garamond (text),
+   loaded from Google Fonts in index.html.
+   ===================================================================== */
+:root{color-scheme:dark;--ground:#47070d;--gold:#c7a467;--gold2:#f1dcaa;--ink:#4a0f1e;--soft:#7b5a52}
+*{box-sizing:border-box;margin:0;min-width:0}
+body{background-color:var(--ground);background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .1  0 0 0 0 .01  0 0 0 0 .02  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");background-size:300px 300px;color:var(--ink);font:18px/1.6 "Cormorant Garamond",Georgia,serif;overflow-x:clip;-webkit-tap-highlight-color:transparent}
+body:not(.s4) main{display:none}
+img{max-width:100%;display:block}
+/* ---------- opening ---------- */
+#view{position:relative;height:var(--vh,100vh);overflow:hidden;background:radial-gradient(80% 60% at 50% 45%,#3a0b17,#1c050b);color:#f3e6dc}
+#stage{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);overflow:hidden}
+#stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;display:block}
+#v2{opacity:0}
+.cover{position:absolute;inset:0;background:url(../assets/poster.jpg) 0 0/100% 100% no-repeat;transition:opacity .4s}
+.prompt{position:absolute;left:0;right:0;bottom:0;padding:130px 20px max(7vh,30px);text-align:center;background:linear-gradient(transparent,rgba(28,5,11,.88));pointer-events:none;transition:opacity .6s}
+.prompt b{display:block;font:400 clamp(40px,11vw,60px)/1.1 "Pinyon Script",cursive;color:var(--gold2);text-shadow:0 2px 12px rgba(0,0,0,.5)}
+.prompt span{font-style:italic;font-size:19px}
+.dot{display:inline-block;width:8px;height:8px;margin-right:10px;border-radius:50%;background:var(--gold2);vertical-align:middle;animation:ping 1.8s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(241,220,170,.7)}70%,100%{box-shadow:0 0 0 12px rgba(241,220,170,0)}}
+body:not(.s0) .prompt{opacity:0}
+#sealBtn{position:absolute;left:49.2%;top:38.3%;width:36%;aspect-ratio:1;transform:translate(-50%,-50%);border:0;border-radius:50%;background:transparent;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .7s}
+#sealBtn::before,#sealBtn::after{content:"";position:absolute;inset:4%;border-radius:50%;border:1.5px solid rgba(241,220,170,.85);animation:halo 2.4s ease-out infinite}
+#sealBtn::after{animation-delay:1.2s}
+@keyframes halo{0%{transform:scale(.92);opacity:.95}100%{transform:scale(1.35);opacity:0}}
+.sealHint{position:absolute;left:0;right:0;top:50.8%;text-align:center;font-style:italic;font-size:clamp(17px,4.6vw,21px);color:var(--gold2);text-shadow:0 2px 8px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .7s}
+.s2 #sealBtn{opacity:1;pointer-events:auto}.s2 .sealHint{opacity:1}
+.inv{position:absolute;left:23%;right:23%;top:12%;bottom:13%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:var(--ink);pointer-events:none}
+.inv>*{opacity:0;transform:translateY(10px);transition:opacity 1.4s ease,transform 1.4s ease}
+.s4 .inv>*{opacity:1;transform:none}
+.s4 .inv>:nth-child(2){transition-delay:.35s}.s4 .inv>:nth-child(3){transition-delay:.7s}.s4 .inv>:nth-child(4){transition-delay:1.05s}.s4 .inv>:nth-child(5){transition-delay:1.4s}.s4 .inv>:nth-child(6){transition-delay:1.75s}.s4 .inv>:nth-child(7){transition-delay:2.1s}
+.inv small{font-size:calc(var(--sw,400px)*.03);font-style:italic;color:var(--soft)}
+.mono{font:400 clamp(46px,13vw,74px)/1 "Pinyon Script",cursive;background:linear-gradient(100deg,#8a6a3a,#d9bb80 35%,#a17a3e 60%,#d9bb80);-webkit-background-clip:text;background-clip:text;color:transparent}
+.inv .mono{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--ink);margin:.15em 0 .1em;font-size:calc(var(--sw,400px)*.088);line-height:.95;display:flex;flex-direction:column;align-items:center}
+.inv .mono span{font-size:.55em;line-height:1.1;color:#a17a3e}
+.inv .line{font-size:calc(var(--sw,400px)*.036);line-height:1.35;max-width:14em}
+.inv .rule{width:60%;height:1px;margin:1em 0;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.inv .date{font-weight:600;font-size:calc(var(--sw,400px)*.042);line-height:1.3}
+.inv .where{font-size:calc(var(--sw,400px)*.033);color:var(--soft);line-height:1.35}
+.ctrl{position:fixed;z-index:5;top:max(14px,env(safe-area-inset-top));right:max(14px,env(safe-area-inset-right))}
+.pill{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid rgba(241,220,170,.6);background:rgba(28,5,11,.55);backdrop-filter:blur(6px);color:var(--gold2);font:500 16px "Cormorant Garamond",serif;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.pill:focus-visible,#sealBtn:focus-visible,.btn:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+#skip{opacity:0;pointer-events:none;transition:opacity .6s}
+.s1 #skip,.s2 #skip,.s3 #skip{opacity:1;pointer-events:auto}
+.down{position:absolute;left:50%;transform:translateX(-50%);bottom:max(3vh,16px);border:0;background:none;font-family:inherit;cursor:pointer;text-align:center;color:var(--gold2);font-style:italic;font-size:17px;opacity:0;transition:opacity .8s 2.6s;pointer-events:none;text-shadow:0 2px 8px rgba(0,0,0,.8)}
+.down i{display:block;width:1px;height:34px;margin:6px auto 0;background:linear-gradient(var(--gold2),transparent);animation:cue 2s ease-in-out infinite;transform-origin:top}
+@keyframes cue{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{opacity:0}}
+.s4 .down{opacity:1;pointer-events:auto}
+.loading{position:fixed;left:50%;bottom:max(7vh,30px);transform:translateX(-50%);font-style:italic;font-size:15px;color:rgba(243,230,220,.7);opacity:0;transition:opacity .4s;pointer-events:none}
+.wait .loading{opacity:1}
+/* ---------- invitation sections ---------- */
+main>*:not(.rose){position:relative;z-index:1}
+main{position:relative;padding:clamp(48px,8vw,90px) max(5vw,14px) 40px;overflow:hidden}
+.rose{position:absolute;z-index:0;width:min(40vw,260px);pointer-events:none;opacity:.8}
+.rose.tl{left:-2%;top:0}.rose.br{right:-2%;transform:scale(-1,-1)}
+.sheet{position:relative;max-width:580px;margin:0 auto clamp(40px,7vw,64px);border-style:solid;border-width:24px;border-image:url(../assets/ivory.jpg) 48 fill / 24px stretch;padding:clamp(26px,6vw,44px) clamp(14px,4vw,30px);text-align:center;filter:drop-shadow(0 18px 22px rgba(20,2,6,.55))}
+.sheet h2{font:400 clamp(44px,11vw,60px)/1.05 "Pinyon Script",cursive;color:var(--ink);margin-bottom:.2em}
+.sheet p{margin:0 auto .8em;max-width:32em}
+.lead{font-style:italic;color:var(--soft)}
+.orn{width:120px;height:14px;margin:.4em auto 1.1em}
+.big{font-weight:600;font-size:clamp(22px,5.6vw,28px);line-height:1.25}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:0 1.6em;border-radius:999px;border:1px solid var(--ink);color:var(--ink);background:transparent;font:600 16px "Cormorant Garamond",serif;text-decoration:none;cursor:pointer;margin:.3em .2em;transition:background .3s,color .3s}
+.btn:hover{background:var(--ink);color:#fbf6ef}
+.photo{position:relative;margin:4px auto 20px;padding:6px;background:#fbf6ef;box-shadow:0 0 0 1px var(--gold),0 10px 22px rgba(60,10,20,.25)}
+.photo::after{content:"";position:absolute;inset:12px;border:1px solid rgba(251,246,239,.75);pointer-events:none}
+.photo img{width:100%;height:auto;aspect-ratio:1360/912;object-fit:cover}
+/* countdown on wine */
+.count{max-width:580px;margin:0 auto clamp(40px,7vw,64px);text-align:center;color:var(--gold2)}
+.count{padding-top:clamp(70px,22vw,150px)}
+.count h2{font:400 clamp(42px,10vw,56px)/1.1 "Pinyon Script",cursive;margin-bottom:.4em;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(6px,2vw,14px)}
+.tile{border-style:solid;border-width:14px;border-image:url(../assets/ivory.jpg) 48 fill / 14px stretch;padding:10px 0 6px;color:var(--ink);filter:drop-shadow(0 10px 14px rgba(20,2,6,.5))}
+.tile b{display:block;font-size:clamp(28px,8vw,44px);font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.tile span{font-size:14px;font-style:italic;color:var(--soft)}
+/* timeline */
+.tl{list-style:none;padding:0;margin:0 auto;max-width:26em;text-align:left}
+.tl li{display:grid;grid-template-columns:5.6em minmax(0,1fr);gap:16px;align-items:center;padding:12px 0;border-top:1px solid rgba(199,164,103,.45)}
+.tl li:first-child{border-top:0}
+.tl time{font-weight:600;white-space:nowrap;text-align:right;font-size:19px}
+.tl h3{font:400 34px/1.1 "Pinyon Script",cursive}
+.tl p{margin:0;font-size:16px;color:var(--soft)}
+/* RSVP */
+footer{text-align:center;color:var(--gold2);padding:10px 18px clamp(150px,40vw,240px)}
+footer img{width:84px;margin:0 auto 6px;filter:drop-shadow(0 6px 10px rgba(0,0,0,.5))}
+footer .mono{font-size:clamp(46px,12vw,60px);line-height:.95;display:flex;flex-direction:column;align-items:center;margin:.1em 0 .3em}
+footer .mono span{font-size:.55em;line-height:1.1}
+footer p{margin:.3em 0}
+.credit{margin-top:34px;font-size:14px;font-style:italic;color:#d8bfb7;letter-spacing:.02em}
+/* reveal: cards settle down onto the table */
+.rv{opacity:0;transform:perspective(1000px) rotateX(-14deg) translateY(28px);transform-origin:50% 0;transition:opacity 1.1s ease,transform 1.3s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+@media(max-width:400px){.tl li{grid-template-columns:4.9em minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){#sealBtn::before,#sealBtn::after,.dot,.down i{animation:none}.rv{opacity:1;transform:none}}

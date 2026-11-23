@@ -1,0 +1,14 @@
+# Netlify settings — no build step, the site is plain HTML/CSS/JS.
+[build]
+  publish = "."
+
+# Cache images and videos for a week so the invitation opens fast on repeat visits.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Accept-Ranges = "bytes"
