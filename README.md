@@ -2,30 +2,33 @@
 
 An interactive wedding invitation. A silk-wrapped card unties, the guest taps the Z & U wax seal, the gatefold opens and the invitation details follow.
 
+- **Live:** https://theforeverletter.netlify.app
+- **Repository:** https://github.com/hanzala9898/Wedding-Invitation
+
 Made by Hanzala Shahzad.
 
 ---
 
-## Project structure
+## Files
 
-```
-zarwa-usama-invitation/
-├── index.html          ← ALL the text: names, date, venue, schedule, dress code, gifts, footer
-├── css/style.css       ← colours, fonts, sizes, layout
-├── js/main.js          ← countdown date (top of file) and the opening animation logic
-├── assets/
-│   ├── clip1.mp4       ← video 1: bow loosens, silk slides away, ends on the seal
-│   ├── clip2.mp4       ← video 2: seal cracks, gatefold opens onto the ivory card
-│   ├── poster.jpg      ← first frame of clip1 (shown before tapping, and as link preview)
-│   ├── ivory.jpg       ← the deckle-edged ivory card used as the frame of every section
-│   ├── rose.webp       ← embossed rose in the page corners
-│   ├── seal.webp       ← Z & U wax seal (footer)
-│   └── venue.jpg       ← colour-graded photo of the hall
-├── design-source/      ← the original approved AI images (keep for future edits/videos)
-├── netlify.toml        ← Netlify settings (no build step needed)
-├── PROJECT-NOTES.md    ← full history, decisions and every prompt used
-└── README.md
-```
+All files sit together in one folder, with no sub-folders. Keep it that way: the code links to the files by plain name (e.g. `clip1.mp4`).
+
+| File | What it is |
+|---|---|
+| `index.html` | **All the text:** names, date, venue, schedule, dress code, gifts, footer |
+| `style.css` | Colours, fonts, sizes, layout |
+| `main.js` | Countdown date (top of file) and the opening animation logic |
+| `clip1.mp4` | Video 1: bow loosens, silk slides away, ends on the seal |
+| `clip2.mp4` | Video 2: seal cracks, gatefold opens onto the ivory card |
+| `poster.jpg` | First frame of clip1 (shown before tapping, and as the WhatsApp preview) |
+| `ivory.jpg` | The deckle-edged ivory card used as the frame of every section |
+| `rose.webp` | Embossed rose in the page corners |
+| `seal.webp` | Z & U wax seal (footer) |
+| `venue.jpg` | Colour-graded photo of the hall |
+| `venue-original.jpg` | Original hall photo, before editing |
+| `1-start-frame-silk-wrapped.png`, `2-unwrapped-seal-aligned.png`, `3-gatefold-open.png` | The approved AI images the videos were made from. Not used by the website; kept for future edits. |
+| `netlify.toml` | Netlify settings (no build step needed) |
+| `PROJECT-NOTES.md` | Full history, decisions and every prompt used |
 
 ---
 
@@ -37,11 +40,11 @@ zarwa-usama-invitation/
 |---|---|
 | Names, date, venue on the opening card | `index.html` → section **1. OPENING**, inside `<div class="inv">` |
 | Venue name, address, photo, map link | `index.html` → **Venue** card |
-| Schedule (times and events) | `index.html` → **The day** card, one `<li>` per event |
+| Schedule (times and events) | `index.html` → **The Barat Day** card, one `<li>` per event |
 | Dress code or gifts text | `index.html` → those cards |
 | Phone number, footer text, "Made by" | `index.html` → `<footer>` |
-| Countdown date and time | `js/main.js` → `WEDDING_DATE` on line 8 |
-| Colours | `css/style.css` → `:root` at the top |
+| Countdown date and time | `main.js` → `WEDDING_DATE` on line 8 |
+| Colours | `style.css` → `:root` at the top |
 
 ### Add a new section
 Copy any `<article class="sheet rv"> … </article>` block in `index.html`, paste it where you want it, and change the title and text.
@@ -51,13 +54,19 @@ Copy any `<article class="sheet rv"> … </article>` block in `index.html`, past
 <li><time>3:00 PM</time><div><h3>Rasm</h3></div></li>
 ```
 
+### Hide something without deleting it
+Wrap it in an HTML comment:
+```html
+<!-- <p class="lead">Canal Road</p> -->
+```
+
 ### Update "Add to calendar"
 The link in the Venue card contains `dates=20270109T080000Z/20270109T120000Z`. These are **UTC** times, so Pakistan time minus 5 hours: 1 PM PKT = `080000Z`, 5 PM PKT = `120000Z`.
 
 ### Replace a video
-Export as vertical **1080 × 1920 MP4 (H.264)** and keep each file under ~5 MB. Save it over `assets/clip1.mp4` or `assets/clip2.mp4`. If clip1 changes, also replace `assets/poster.jpg` with its first frame.
+Export as vertical **1080 × 1920 MP4 (H.264)**, keep it under ~5 MB, and save it with the same name (`clip1.mp4` or `clip2.mp4`). If clip1 changes, also replace `poster.jpg` with its first frame.
 
-> **Important:** if you replace clip1, the "Tap the seal" ring is positioned for where the seal sits in the last frame (`left:49.2%; top:38.3%` on `#sealBtn` in `style.css`). Adjust it if the seal moves.
+> **Important:** the "Tap the seal" ring is positioned for where the seal sits in the last frame of clip1 (`left:49.2%; top:38.3%` on `#sealBtn` in `style.css`). Adjust it if the seal moves.
 
 ---
 
@@ -71,49 +80,28 @@ Videos don't play when you double-click `index.html`, so use a local server:
 
 ---
 
-## Put it on GitHub
+## Publishing changes
 
-In the VS Code terminal, inside the project folder:
+The site is already connected: **GitHub → Netlify**. Every change pushed to GitHub goes live in about a minute.
 
+**From VS Code** (after cloning the repository):
 ```bash
-git init
 git add .
-git commit -m "Zarwa & Usama wedding invitation"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/zarwa-usama-invitation.git
-git push -u origin main
+git commit -m "Describe what you changed"
+git push
 ```
 
-(Create the empty repository on github.com first, with the same name, and without a README.)
+**Or on the GitHub website:** open the file → pencil icon (Edit) → make the change → **Commit changes**. To replace a file (e.g. a new video), use **Add file → Upload files** with the same file name.
 
----
+After it goes live, reload the site with **Ctrl + Shift + R** to skip the old cached version.
 
-## Publish on Netlify
-
-1. Go to **app.netlify.com** → **Add new site** → **Import an existing project** → **GitHub**.
-2. Choose the `zarwa-usama-invitation` repository.
-3. Settings: **Build command:** leave empty. **Publish directory:** `.`
-4. Click **Deploy**. You'll get a link like `https://something.netlify.app`.
-5. Optional: **Site configuration → Change site name** to something like `zarwa-usama.netlify.app`.
-
-From then on, every `git push` updates the live site automatically within a minute.
-
-### After the first deploy (for nice WhatsApp previews)
-In `index.html`, change
-```html
-<meta property="og:image" content="assets/poster.jpg">
-```
-to the full address, e.g.
-```html
-<meta property="og:image" content="https://zarwa-usama.netlify.app/assets/poster.jpg">
-```
-WhatsApp needs the full link to show the picture when you share the invitation.
+> Don't upload files inside folders. Everything must stay in the main folder, or the page will load without its design, videos and pictures.
 
 ---
 
 ## How the opening works
 
-The page has five states, set as a class on `<body>` by `js/main.js`:
+The page has five states, set as a class on `<body>` by `main.js`:
 
 | State | What the guest sees |
 |---|---|

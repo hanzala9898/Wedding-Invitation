@@ -4,11 +4,17 @@
 
 # Cache images and videos for a week so the invitation opens fast on repeat visits.
 [[headers]]
-  for = "/assets/*"
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Accept-Ranges = "bytes"
+
+[[headers]]
+  for = "/*.jpg"
   [headers.values]
     Cache-Control = "public, max-age=604800"
 
 [[headers]]
-  for = "/*.mp4"
+  for = "/*.webp"
   [headers.values]
-    Accept-Ranges = "bytes"
+    Cache-Control = "public, max-age=604800"
