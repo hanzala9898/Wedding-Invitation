@@ -9,14 +9,14 @@
   <!-- Link preview (WhatsApp, Facebook, etc.) -->
   <meta property="og:title" content="Zarwa & Usama — Wedding Invitation">
   <meta property="og:description" content="Saturday, 9 January 2027 · ViceRoy by Mughal-E-Azam, Canal Road">
-  <meta property="og:image" content="assets/poster.jpg">
+  <meta property="og:image" content="https://theforeverletter.netlify.app/poster.jpg">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#47070d">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Pinyon+Script&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="s0">
 
@@ -26,8 +26,8 @@
      ===================================================================== -->
 <section id="view" role="button" tabindex="0" aria-label="Tap to open the invitation">
   <div id="stage">
-    <video id="v1" src="assets/clip1.mp4" playsinline webkit-playsinline preload="auto" poster="assets/poster.jpg"></video>
-    <video id="v2" src="assets/clip2.mp4" playsinline webkit-playsinline preload="auto"></video>
+    <video id="v1" src="clip1.mp4" playsinline webkit-playsinline preload="auto" poster="poster.jpg"></video>
+    <video id="v2" src="clip2.mp4" playsinline webkit-playsinline preload="auto"></video>
     <div class="cover" id="cover"></div>
     <button id="sealBtn" type="button" aria-label="Tap the wax seal to open the invitation"></button>
     <p class="sealHint">Tap the seal</p>
@@ -57,7 +57,7 @@
      Each <article class="sheet"> is one ivory card. Copy one to add a section.
      ===================================================================== -->
 <main id="details">
-  <img class="rose tl" src="assets/rose.webp" alt="">
+  <img class="rose tl" src="rose.webp" alt="">
 
   <!-- Countdown — the date/time it counts to is set in js/main.js (WEDDING_DATE) -->
   <section class="count rv" aria-label="Countdown">
@@ -74,7 +74,7 @@
   <article class="sheet rv">
     <h2>The venue</h2>
     <svg class="orn" viewBox="0 0 120 14" aria-hidden="true"><path d="M0 7H50M70 7H120" stroke="#c7a467"/><path d="M60 1 66 7 60 13 54 7Z" fill="#c7a467"/></svg>
-    <figure class="photo"><img src="assets/venue.jpg" alt="ViceRoy by Mughal-E-Azam, the wedding hall" width="1360" height="912" loading="lazy"></figure>
+    <figure class="photo"><img src="venue.jpg" alt="ViceRoy by Mughal-E-Azam, the wedding hall" width="1360" height="912" loading="lazy"></figure>
     <p class="big">ViceRoy by Mughal-E-Azam</p>
     <!-- <p class="lead">Canal Road</p> -->
     <p>Saturday, 9 January 2027, from one o'clock in the afternoon</p>
@@ -112,11 +112,11 @@
     <p>Envelopes, however, are accepted with great joy and are never returned.</p>
   </article>
 
-  <img class="rose br" src="assets/rose.webp" alt="" style="bottom:0">
+  <img class="rose br" src="rose.webp" alt="" style="bottom:0">
 
   <!-- Footer -->
   <footer>
-    <img src="assets/seal.webp" alt="">
+    <img src="seal.webp" alt="">
     <p class="mono">Zarwa<span>&amp;</span>Usama</p>
     <p>Saturday, 9 January 2027</p>
     <p>ViceRoy by Mughal-E-Azam, Canal Road</p>
@@ -127,6 +127,6 @@
   </footer>
 </main>
 
-<script src="js/main.js"></script>
+<script src="main.js"></script>
 </body>
 </html>
