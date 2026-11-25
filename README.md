@@ -20,12 +20,13 @@ All files sit together in one folder, with no sub-folders. Keep it that way: the
 | `main.js` | Countdown date (top of file) and the opening animation logic |
 | `clip1.mp4` | Video 1: bow loosens, silk slides away, ends on the seal |
 | `clip2.mp4` | Video 2: seal cracks, gatefold opens onto the ivory card |
-| `poster.jpg` | First frame of clip1 (shown before tapping, and as the WhatsApp preview) |
+| `poster.jpg` | First frame of clip1 (shown before tapping) |
+| `og.jpg` | 1200 × 630 link preview image for WhatsApp / Facebook |
 | `ivory.jpg` | The deckle-edged ivory card used as the frame of every section |
 | `rose.webp` | Embossed rose in the page corners |
 | `seal.webp` | Z & U wax seal (footer) |
-| `venue.jpg` | Colour-graded photo of the hall |
-| `venue-original.jpg` | Original hall photo, before editing |
+| `venue.jpg` | Colour-graded photo of Bel Avenir |
+| `venue-original.jpg` | Original Bel Avenir photo, before editing |
 | `1-start-frame-silk-wrapped.png`, `2-unwrapped-seal-aligned.png`, `3-gatefold-open.png` | The approved AI images the videos were made from. Not used by the website; kept for future edits. |
 | `netlify.toml` | Netlify settings (no build step needed) |
 | `PROJECT-NOTES.md` | Full history, decisions and every prompt used |
@@ -38,7 +39,8 @@ All files sit together in one folder, with no sub-folders. Keep it that way: the
 
 | What to change | Where |
 |---|---|
-| Names, date, venue on the opening card | `index.html` → section **1. OPENING**, inside `<div class="inv">` |
+| Bismillah and verse on the opening card (page 1) | `index.html` → section **1. OPENING**, inside `<div class="inv">` |
+| Invitation wording and names (page 2) | `index.html` → **Page 2: the invitation** card |
 | Venue name, address, photo, map link | `index.html` → **Venue** card |
 | Schedule (times and events) | `index.html` → **The Barat Day** card, one `<li>` per event |
 | Dress code or gifts text | `index.html` → those cards |
@@ -65,6 +67,8 @@ The link in the Venue card contains `dates=20270109T080000Z/20270109T120000Z`. T
 
 ### Replace a video
 Export as vertical **1080 × 1920 MP4 (H.264)**, keep it under ~5 MB, and save it with the same name (`clip1.mp4` or `clip2.mp4`). If clip1 changes, also replace `poster.jpg` with its first frame.
+
+> **After replacing any file** (photo, video, style.css, main.js): in `index.html` (and in `style.css` for `poster.jpg` / `ivory.jpg`), change `?v=3` to `?v=4` after that file's name. Otherwise phones may keep showing the old cached copy.
 
 > **Important:** the "Tap the seal" ring is positioned for where the seal sits in the last frame of clip1 (`left:49.2%; top:38.3%` on `#sealBtn` in `style.css`). Adjust it if the seal moves.
 

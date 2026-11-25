@@ -2,19 +2,34 @@
 [build]
   publish = "."
 
-# Cache images and videos for a week so the invitation opens fast on repeat visits.
+# Pages: always check for the newest version.
 [[headers]]
-  for = "/*.mp4"
+  for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
-    Accept-Ranges = "bytes"
+    Cache-Control = "public, max-age=0, must-revalidate"
 
+# Styles, script, images: short cache so changes reach phones quickly.
+# (index.html also adds ?v=3 to every file name; raise the number after replacing a file.)
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
 [[headers]]
   for = "/*.jpg"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
-
+    Cache-Control = "public, max-age=3600"
 [[headers]]
   for = "/*.webp"
   [headers.values]
-    Cache-Control = "public, max-age=604800"
+    Cache-Control = "public, max-age=3600"
+
+# Videos rarely change: cache for a day.
+[[headers]]
+  for = "/*.mp4"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Accept-Ranges = "bytes"
