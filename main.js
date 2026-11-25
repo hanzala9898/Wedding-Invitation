@@ -44,6 +44,9 @@ const VIDEO_H = 1920;
     stage.style.width = VIDEO_W * k + 'px';
     stage.style.height = VIDEO_H * k + 'px';
     stage.style.setProperty('--sw', VIDEO_W * k + 'px');
+    // put "Scroll for your invitation" just under the ivory card (its bottom edge is ~90.5% down the video)
+    const sh = VIDEO_H * k, top = (h - sh) / 2, cardBottom = top + sh * 0.905;
+    $('down').style.top = Math.min(cardBottom + 10, h - 64) + 'px';
   };
   addEventListener('resize', fit);
   fit();
